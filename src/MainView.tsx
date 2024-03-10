@@ -1,4 +1,5 @@
 
+import { FunctionComponent } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -9,11 +10,16 @@ import {
   View,
 } from 'react-native';
 
-const Lamp = ({ name, onState }) => {
+type LampProps = {
+  name: string;
+  onState: boolean;
+}
+
+const Lamp: FunctionComponent<LampProps> = ({ name, onState }) => {
   return (
     <View>
       <Text>{name}</Text>
-      <Text>{onState}</Text>
+      <Text>{onState ? "On" : "Off"}</Text>
     </View>
   );
 }
@@ -21,10 +27,10 @@ const Lamp = ({ name, onState }) => {
 
 export const HueyMain = () => {
   const lamps = [
-    {name: 'Lamp 1', onState: 'On'},
-    {name: 'Lamp 2', onState: 'Off'},
-    {name: 'Lamp 3', onState: 'On'},
-    {name: 'Lamp 4', onState: 'Off'},
+    {name: 'Lamp 1', onState: true },
+    {name: 'Lamp 2', onState: false },
+    {name: 'Lamp 3', onState: true },
+    {name: 'Lamp 4', onState: false },
   ];
 
   return (
