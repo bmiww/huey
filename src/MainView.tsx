@@ -3,11 +3,9 @@ import { FunctionComponent } from 'react';
 import {
   SafeAreaView,
   ScrollView,
-  // StyleSheet,
-  // StatusBar,
   Text,
-  // useColorScheme,
-  View,
+  TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
 
 type LampProps = {
@@ -16,11 +14,13 @@ type LampProps = {
 }
 
 const Lamp: FunctionComponent<LampProps> = ({ name, onState }) => {
+  const fakeOnPress = () => console.log('Pressed');
+
   return (
-    <View>
-      <Text>{name}</Text>
-      <Text>{onState ? "On" : "Off"}</Text>
-    </View>
+    <TouchableOpacity onPress={fakeOnPress} style={styles.lampButtonContainer}>
+      <Text style={styles.lampName}>{name}</Text>
+      <Text style={styles.lampSwitch}>{onState ? "On" : "Off"}</Text>
+    </TouchableOpacity>
   );
 }
 
@@ -41,3 +41,22 @@ export const HueyMain = () => {
     </SafeAreaView>
   );
 };
+
+
+const styles = StyleSheet.create({
+  lampButtonContainer: {
+    backgroundColor: 'lightgrey',
+    marginVertical: 4,
+    marginHorizontal: 10,
+    borderRadius: 10,
+    padding: 4,
+    flexDirection: 'row',
+    alignContent: 'space-between',
+  },
+  lampName: {
+    flexGrow: 2,
+  },
+  lampSwitch: {
+    alignSelf: 'flex-end',
+  }
+});
