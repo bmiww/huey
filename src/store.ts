@@ -5,6 +5,7 @@
 // ╚════██║   ██║   ██║   ██║██╔══██╗██╔══╝
 // ███████║   ██║   ╚██████╔╝██║  ██║███████╗
 // ╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝
+// NOTE: Here are some examples on the HUE api: https://developers.meethue.com/develop/get-started-2/
 import { all, call, delay, fork, put, take, select } from 'redux-saga/effects';
 import { CHANGE_LIGHT, FAILED_BRIDGE_PROMPT, FETCH_LIGHTS, PROMPT_BRIDGE_BUTTON, START_USER_FLOW, UPDATE_LIGHTS, UPDATE_USER } from './selectors';
 import { Light } from './types';
